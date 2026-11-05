@@ -107,3 +107,54 @@ open build/QuotaDock.app</code></pre>
 ## 开源许可
 
 本仓库中的 QuotaDock 源码以 [MIT License](LICENSE) 发布。Codex helper 不包含在仓库中，也不由该许可重新授权。
+
+---
+
+## English
+
+### QuotaDock — a native macOS quota monitor for Codex
+
+QuotaDock keeps Codex usage limits visible from the macOS menu bar and a compact desktop HUD. It combines current quota windows with reset times, a local history ledger, reset markers, and a rate-based estimate of when a limit may run out.
+
+When short-window and weekly limits change at different rates, a single percentage can be difficult to interpret. QuotaDock lets you compare those windows, review how they changed over time, and understand whether recent usage appears to be accelerating. Forecasts are estimates derived from recent samples; they are not guarantees from the service.
+
+### Real screenshots
+
+The screenshots above were captured while the app was running on the developer’s Mac. They show live quota values and reset times from those moments. Values vary by account, plan, and time. Some early HUD captures still show the earlier “QuotaBar” label; the current project and app name is QuotaDock.
+
+### Features
+
+- Menu-bar summary and a compact floating HUD for the featured quota window.
+- Short-window and weekly limits, reset countdowns, reset markers, and multi-window account groups.
+- Interactive history charts with zooming, date ticks, and reset-time annotations.
+- Usage-rate estimates with distinct collecting, steady, exhausted, and falling states.
+- Reset-aware forecasting that avoids fitting across long sample gaps and accounts for limits blocked by an exhausted primary window.
+- Configurable low-quota alerts, reset announcements, refresh cadence, language, theme, and badge style.
+- A local JSONL usage ledger retained for up to 45 days.
+
+### Forecast behavior and limits
+
+QuotaDock fits a linear trend to remaining quota. It first examines the most recent 20 minutes, then falls back to a one-hour window when recent data is insufficient or inconclusive. The fit requires at least four samples spanning four minutes; gaps over 20 minutes invalidate a fit. Drops below 0.02 percentage points per minute are treated as steady. Recent slope is an estimate and can change as new usage arrives.
+
+The app reads rate-limit information from the local Codex helper’s app-server protocol. That protocol is not a public compatibility contract and may change with Codex releases. The helper handles its own authentication and service communication; QuotaDock cannot bypass server-side limits or guarantee data for every account or plan.
+
+### Privacy and local data
+
+QuotaDock stores its quota history locally under the macOS Application Support directory, in per-day JSONL files, and removes data older than 45 days. Preferences are stored in UserDefaults. The app launches the Codex helper as a local child process with a separate CODEX_HOME under the QuotaDock Application Support folder. Review screenshots before sharing them, since they can reveal live quota values, reset times, or account details.
+
+QuotaDock does not include a cloud backend or telemetry service. The Codex helper’s own network and account behavior remains governed by the Codex installation and its settings.
+
+### Build from source
+
+Requirements: macOS 14 or later, Xcode Command Line Tools, and a local Codex helper executable. The helper binary is intentionally not included in this repository. Set QUOTADOCK_CODEX_PATH to the helper executable, or let the build script find a codex executable on PATH or in an existing local QuotaDock installation.
+
+<pre><code>git clone https://github.com/tunianbututou/QuotaDock.git
+cd QuotaDock
+QUOTADOCK_CODEX_PATH="/path/to/codex" ./build.sh
+open build/QuotaDock.app</code></pre>
+
+The build targets arm64 and macOS 14. It uses the system Swift compiler and Apple frameworks, then ad-hoc signs the app locally. The signature is not an Apple Developer ID signature or notarization. To install into /Applications, explicitly run ./build.sh install; an existing app is moved to the local build/prev.app folder first.
+
+### License
+
+QuotaDock source code is released under the [MIT License](LICENSE). The Codex helper is not part of this repository and is not relicensed by this project.
