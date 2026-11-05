@@ -33,7 +33,7 @@ QuotaDock 是独立的社区工具，不是 Codex 或 ChatGPT 官方应用。它
 - **重置识别**：从额度明显回升识别重置；短窗口和周额度的重置线在图表中合并展示。
 - **多额度窗口**：兼容多个额度组和旧格式的单组响应，优先展示 Codex 主额度组。
 - **提醒**：额度低于用户设置阈值时通知；可配置是否提示重置。
-- **外观与交互**：浅色/深色主题、中文/英文、全局快捷键、窗口置顶选项、截图时允许选中悬浮窗等设置。
+- **多语言与外观**：界面支持简体中文、繁體中文、English、le français、한국어、日本語、العربية、español、português；并支持深浅主题、全局快捷键、窗口置顶和截图选窗等设置。
 - **本地历史账本**：成功读取后以 JSONL 记录各窗口剩余比例和重置时间，保留 45 天，不上传该账本。
 
 ## 预测如何工作
@@ -131,6 +131,8 @@ The screenshots above were captured while the app was running on the developer�
 - Reset-aware forecasting that avoids fitting across long sample gaps and accounts for limits blocked by an exhausted primary window.
 - Configurable low-quota alerts, reset announcements, refresh cadence, language, theme, and badge style.
 - A local JSONL usage ledger retained for up to 45 days.
+
+The interface supports nine languages: Simplified Chinese, Traditional Chinese, English, French, Korean, Japanese, Arabic, Spanish, and Portuguese. Language changes apply immediately to the widget, preferences, menus, and trend chart.
 
 ### Forecast behavior and limits
 
