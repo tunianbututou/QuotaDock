@@ -120,7 +120,15 @@ When short-window and weekly limits change at different rates, a single percenta
 
 ### Real screenshots
 
-The screenshots above were captured while the app was running on the developer’s Mac. They show live quota values and reset times from those moments. Values vary by account, plan, and time. Some early HUD captures still show the earlier “QuotaBar” label; the current project and app name is QuotaDock.
+The screenshots above and below were captured while the app was running on the developer’s Mac. They show live quota values and reset times from those moments. Values vary by account, plan, and time. Some early HUD captures still show the earlier “QuotaBar” label; the current project and app name is QuotaDock.
+
+These additional screenshots show the interface after switching it to English. The HUD and trend chart contain the real quota state at capture time; the settings screenshot shows the selected language and other display options.
+
+![QuotaDock HUD in English with live quota values](docs/images/english-hud-live.png)
+
+![QuotaDock quota history chart in English](docs/images/english-trend-live.png)
+
+![QuotaDock settings in English](docs/images/english-settings-live.png)
 
 ### Features
 
