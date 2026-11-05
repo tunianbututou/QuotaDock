@@ -12,6 +12,7 @@
 *.dSYM/
 build/
 release/
+work/
 *.app/
 *.zip
 *.dmg
