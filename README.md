@@ -6,6 +6,22 @@ QuotaDock 是一个原生 macOS 菜单栏额度监控工具。它通过本机 Co
 
 > 源码版本：**2.0.0（Build 20）** · 最低系统：**macOS 14** · 主要针对 **Apple Silicon** 构建。
 
+## 实际运行界面
+
+以下均为 QuotaDock 在开发者 Mac 上的真实运行截图，包含截图时的实时额度与重置时间。额度会随账号、套餐和时间变化；图片用于展示界面和功能，不是固定示例值或服务保证。部分早期 HUD 截图仍显示旧界面名称 QuotaBar，项目及当前应用名称为 QuotaDock。
+
+| 深色 HUD | 浅色 HUD |
+|---|---|
+| ![QuotaDock 深色 HUD 实机截图](docs/images/real-hud-dark.png) | ![QuotaDock 浅色 HUD 实机截图](docs/images/real-hud-light.png) |
+
+| 深色额度趋势 | 浅色额度趋势 |
+|---|---|
+| ![QuotaDock 深色历史趋势实机截图](docs/images/real-trend-dark.png) | ![QuotaDock 浅色历史趋势实机截图](docs/images/real-trend-light.png) |
+
+| 竖向迷你条 | 横向迷你条 |
+|---|---|
+| ![QuotaDock 竖向迷你条实机截图](docs/images/real-mini-vertical.png) | ![QuotaDock 横向迷你条实机截图](docs/images/real-mini-horizontal.png) |
+
 QuotaDock 是独立的社区工具，不是 Codex 或 ChatGPT 官方应用。它依赖本机 Codex app-server 协议；该协议随 Codex 更新可能变化，也不是公开兼容性承诺。
 
 ## 功能
